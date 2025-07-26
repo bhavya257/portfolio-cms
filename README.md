@@ -7,13 +7,17 @@ the website [bhavyajain.in](https://bhavyajain.in).
 
 To run this studio on your local machine, follow these steps:
 
-1. **Clone the repository:**  
-   git clone [https://github.com/bhavya257/portfolio-cms](https://github.com/bhavya257/portfolio-cms)  
-   cd your-repo-name
+1. **Clone the repository:**
+   ```bash 
+   git clone https://github.com/bhavya257/portfolio-cms  
+   cd portfolio-cms
+   ```
 
-2. **Install dependencies:**  
+2. **Install dependencies:**
+   ```bash
    npm install
-
+   ```
+    
 3. Set up environment variables:  
    Create a file named .env.local in the root of the project and add the following variables. You can get these from
    your project's page at manage.sanity.io.
