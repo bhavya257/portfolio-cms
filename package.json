@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
-  "license": "UNLICENSED",
+  "license": "CC-BY-NC-SA-4.0",
   "scripts": {
     "dev": "sanity dev",
     "lint": "eslint . --fix",
