@@ -60,7 +60,7 @@ You can manually deploy the studio by running:
 ## **Suggestions & Feedback**
 
 If you have any suggestions or feedback regarding the structure or implementation of this CMS, please feel free to reach
-out. Contact information is available on my portfolio website: [bhavyajain.in](https://bhavyajain.in).
+out. Contact information is available on my website: [bhavyajain.in](https://bhavyajain.in).
 
 ## **License**
 
