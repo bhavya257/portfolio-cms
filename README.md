@@ -18,8 +18,8 @@ To run this studio on your local machine, follow these steps:
    Create a file named .env.local in the root of the project and add the following variables. You can get these from
    your project's page at manage.sanity.io.
    ``` 
-   SANITY\_STUDIO\_PROJECT\_ID="your\_project\_id"  
-   SANITY\_STUDIO\_DATASET="your\_dataset\_name"
+   SANITY_STUDIO_PROJECT_ID="your_project_id"  
+   SANITY_STUDIO_DATASET="your_dataset_name"
    ``` 
 
 4. **Run the studio:**
