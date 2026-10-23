@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-crm",
+  "name": "portfolio-cms",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -10,22 +10,23 @@
     "start": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "extract-schema": "sanity schemas extract --force"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/vision": "^4.1.1",
-    "react": "^19.1",
-    "react-dom": "^19.1",
-    "react-is": "^19.1.0",
-    "sanity": "^4.1.1",
+    "@sanity/vision": "^6.20.0",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "react-is": "^19.2.2",
+    "sanity": "^6.20.0",
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^5.0.2",
-    "@types/react": "^19.1",
+    "@types/react": "^19.2.0",
     "eslint": "^9.28",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.1",

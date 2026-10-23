@@ -1,5 +1,5 @@
 import {defineField, defineType, defineArrayMember} from 'sanity'
-import {TagIcon} from '@sanity/icons'
+import {TagIcon} from '@sanity/icons/Tag'
 import {iconNameType} from '../objects/iconNameType'
 
 export const skillGroupType = defineType({

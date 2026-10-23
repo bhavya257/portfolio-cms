@@ -20,6 +20,7 @@
 
 # Misc
 .DS_Store
+Thumbs.db
 *.pem
 
 # Typescript
@@ -30,9 +31,11 @@
 
 # IDE settings
 .idea
+.vscode
 
 # Environment variables (never push)
 .env
 
 # Sanity Builds
 .dist
+schema.json

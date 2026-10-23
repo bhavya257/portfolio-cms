@@ -1,5 +1,5 @@
 import {defineField, defineType, defineArrayMember} from 'sanity'
-import {ProjectsIcon} from '@sanity/icons'
+import {ProjectsIcon} from '@sanity/icons/Projects'
 import {blockContentType} from '../objects/blockContentType'
 import {imageContentType} from '../objects/imageContentType'
 import {linkType} from '../objects/linkType'

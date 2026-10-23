@@ -1,5 +1,5 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
-import {CaseIcon} from '@sanity/icons'
+import {CaseIcon} from '@sanity/icons/Case'
 
 export const experienceType = defineType({
   name: 'experience',
