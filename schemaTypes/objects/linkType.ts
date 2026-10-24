@@ -1,6 +1,4 @@
-import {defineType, defineField} from 'sanity'
-import {iconNameType} from './iconNameType'
-import {imageContentType} from './imageContentType'
+import {defineField, defineType} from 'sanity'
 
 export const linkType = defineType({
   name: 'link',

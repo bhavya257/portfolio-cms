@@ -1,14 +1,14 @@
 import {aboutType} from './documents/aboutType'
-import {imageContentType} from './objects/imageContentType'
-import {blockContentType} from './objects/blockContentType'
+import {contactType} from './documents/contactType'
 import {jobType} from './documents/jobType'
+import {projectType} from './documents/projectType'
+import {resumeType} from './documents/resumeType'
 import {skillGroupType} from './documents/skillGroupType'
 import {skillType} from './documents/skillType'
-import {contactType} from './documents/contactType'
-import {resumeType} from './documents/resumeType'
-import {linkType} from './objects/linkType'
-import {projectType} from './documents/projectType'
+import {blockContentType} from './objects/blockContentType'
 import {iconNameType} from './objects/iconNameType'
+import {imageContentType} from './objects/imageContentType'
+import {linkType} from './objects/linkType'
 
 export const schemaTypes = [
   aboutType,

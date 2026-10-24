@@ -1,7 +1,5 @@
-import {defineField, defineType} from 'sanity'
 import {UserIcon} from '@sanity/icons/User'
-import {imageContentType} from '../objects/imageContentType'
-import {blockContentType} from '../objects/blockContentType'
+import {defineField, defineType} from 'sanity'
 
 export const aboutType = defineType({
   name: 'about',

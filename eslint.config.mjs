@@ -4,7 +4,7 @@ import studio from '@sanity/eslint-config-studio'
 import prettier from 'eslint-plugin-prettier'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import importPlugin from 'eslint-plugin-import'
-import * as typescriptEslint from '@typescript-eslint/eslint-plugin'
+import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
 
 export default [

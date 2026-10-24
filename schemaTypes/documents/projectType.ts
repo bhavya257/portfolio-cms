@@ -1,8 +1,5 @@
-import {defineField, defineType, defineArrayMember} from 'sanity'
 import {ProjectsIcon} from '@sanity/icons/Projects'
-import {blockContentType} from '../objects/blockContentType'
-import {imageContentType} from '../objects/imageContentType'
-import {linkType} from '../objects/linkType'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const projectType = defineType({
   name: 'project',

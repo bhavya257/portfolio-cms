@@ -1,6 +1,5 @@
-import {defineField, defineType} from 'sanity'
 import {LinkIcon} from '@sanity/icons/Link'
-import {linkType} from '../objects/linkType'
+import {defineField, defineType} from 'sanity'
 
 export const contactType = defineType({
   name: 'contact',
@@ -24,7 +23,7 @@ export const contactType = defineType({
       media: 'website.logo',
       title: 'title',
     },
-    prepare({media, title, }) {
+    prepare({media, title}) {
       return {
         media,
         title: title || 'Untitled Channel',

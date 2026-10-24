@@ -16,7 +16,7 @@ export const blockContentType = defineType({
       ],
       lists: [
         {title: 'Bullet', value: 'bullet'},
-        { title: 'Numbered', value: 'number'},
+        {title: 'Numbered', value: 'number'},
       ],
       marks: {
         decorators: [

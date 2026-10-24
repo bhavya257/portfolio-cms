@@ -1,8 +1,5 @@
-import {defineArrayMember, defineField, defineType} from 'sanity'
 import {CaseIcon} from '@sanity/icons/Case'
-import {imageContentType} from '../objects/imageContentType'
-import {blockContentType} from '../objects/blockContentType'
-import {linkType} from '../objects/linkType'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const jobType = defineType({
   name: 'job',

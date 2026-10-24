@@ -1,6 +1,5 @@
-import {defineField, defineType, defineArrayMember} from 'sanity'
 import {TagIcon} from '@sanity/icons/Tag'
-import {iconNameType} from '../objects/iconNameType'
+import {defineArrayMember, defineField, defineType} from 'sanity'
 
 export const skillGroupType = defineType({
   name: 'skillGroup',
