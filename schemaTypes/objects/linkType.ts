@@ -41,12 +41,29 @@ export const linkType = defineType({
       type: 'iconName',
       fieldset: 'image',
       hidden: ({parent}) => parent?.imageType !== 'iconName',
+      validation: (Rule) =>
+        Rule.custom((fieldValue, context) => {
+          const parent = context.parent as {imageType?: string} | undefined
+          if (parent?.imageType === 'iconName' && !fieldValue) {
+            return 'Icon name is required.'
+          }
+          return true
+        }),
     }),
     defineField({
       name: 'logo',
       type: 'imageContent',
       fieldset: 'image',
       hidden: ({parent}) => parent?.imageType !== 'logo',
+      validation: (Rule) =>
+        Rule.custom((fieldValue, context) => {
+          const parent = context.parent as {imageType?: string} | undefined
+          const logo = fieldValue as {asset?: unknown} | undefined
+          if (parent?.imageType === 'logo' && !logo?.asset) {
+            return 'A logo image is required.'
+          }
+          return true
+        }),
     }),
   ],
 })
