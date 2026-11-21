@@ -1,0 +1,60 @@
+name: Publish Sanity schema
+
+# Re-extracts schema.json whenever the Studio schema changes and commits it to main,
+# so the frontend build can download it for `sanity typegen generate`.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "schemaTypes/**"
+      - "sanity.config.ts"
+      - "sanity.cli.ts"
+      - "package.json"
+      - "package-lock.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-sanity-schema
+  cancel-in-progress: true
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    env:
+      SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_STUDIO_PROJECT_ID }}
+      SANITY_STUDIO_DATASET: ${{ vars.SANITY_STUDIO_DATASET }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run extract-schema
+
+      - name: Commit schema.json if it changed
+        id: commit
+        run: |
+          if git diff --quiet -- schema.json && git ls-files --error-unmatch schema.json >/dev/null 2>&1; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add schema.json
+          git commit -m "chore(schema): update extracted schema.json"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Redeploys the frontend so its build regenerates sanity.types.ts from the new schema
+      - name: Trigger frontend deployment
+        if: steps.commit.outputs.changed == 'true' && env.VERCEL_DEPLOY_HOOK_URL != ''
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: curl -fsS -X POST "$VERCEL_DEPLOY_HOOK_URL"
