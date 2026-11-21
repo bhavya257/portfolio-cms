@@ -24,8 +24,10 @@ jobs:
   extract:
     runs-on: ubuntu-latest
     env:
-      SANITY_STUDIO_PROJECT_ID: ${{ vars.SANITY_STUDIO_PROJECT_ID }}
-      SANITY_STUDIO_DATASET: ${{ vars.SANITY_STUDIO_DATASET }}
+      SANITY_STUDIO_PROJECT_ID: ${{ secrets.SANITY_STUDIO_PROJECT_ID }}
+      SANITY_STUDIO_DATASET: ${{ secrets.SANITY_STUDIO_DATASET }}
+      # Job-level so the deploy step's `if:` can see it (a step's own env is not available to its `if:`)
+      VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
     steps:
       - uses: actions/checkout@v4
 
@@ -45,6 +47,7 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
+          # Commit as the official GitHub Actions bot (41898282 is its GitHub user ID)
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add schema.json
@@ -55,6 +58,4 @@ jobs:
       # Redeploys the frontend so its build regenerates sanity.types.ts from the new schema
       - name: Trigger frontend deployment
         if: steps.commit.outputs.changed == 'true' && env.VERCEL_DEPLOY_HOOK_URL != ''
-        env:
-          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
         run: curl -fsS -X POST "$VERCEL_DEPLOY_HOOK_URL"
