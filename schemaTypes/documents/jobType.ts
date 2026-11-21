@@ -96,7 +96,7 @@ export const jobType = defineType({
       return {
         media,
         title: setTitle,
-        subtitle: `${setCompany} (${setStartDate} - ${endDate})`,
+        subtitle: `${setCompany} (${setStartDate} – ${endDate})`,
       }
     },
   },
